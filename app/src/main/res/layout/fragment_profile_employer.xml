@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileEmployer">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="match_parent"
+            android:layout_height="102dp"
+            android:src="@drawable/baseline_account_circle_24" />
+
+        <TextView
+            android:id="@+id/EmailAddressemployer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="600dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/FullNameemployer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="560dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/BusinessNameemployer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="520dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/Roleemployer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="480dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/Phonenumberemployer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="440dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/Cityemployer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="400dp"
+            android:text="TextView" />
+    </RelativeLayout>
+</FrameLayout>

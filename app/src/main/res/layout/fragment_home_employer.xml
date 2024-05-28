@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeEmployer">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/EmailtextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="680dp"
+            android:text="TextView"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/FullNametextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="640dp"
+            android:text="TextView"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/CitytextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="600dp"
+            android:text="TextView"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/Gendertextview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="560dp"
+            android:text="TextView"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/Agetextview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="520dp"
+            android:text="TextView"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/ResonJobtextview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="480dp"
+            android:text="TextView"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/Remembertextview"
+            android:layout_width="383dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="563dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="134dp"
+            android:text="Remember if you want to contact him/her please contact through email"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/move"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="99dp"
+            android:layout_marginBottom="343dp"
+            android:text="move to the next candidate"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/NoJobOffers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="101dp"
+            android:layout_marginBottom="239dp"
+            android:text="you didn't get any job application"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
+</FrameLayout>

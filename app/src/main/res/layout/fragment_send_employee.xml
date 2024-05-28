@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SendEmployee"
+    android:background="@drawable/newjob">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/SearchBuiness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="104dp"
+            android:layout_marginBottom="591dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="the Business Name"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/reasonjob"
+            android:layout_width="398dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="457dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="why we should accept your job application"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/send"
+            android:layout_width="292dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="43dp"
+            android:layout_marginBottom="350dp"
+            android:text="Send Application"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+</FrameLayout>
