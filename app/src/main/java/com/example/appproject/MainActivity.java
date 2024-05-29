@@ -438,7 +438,7 @@ public class MainActivity extends AppCompatActivity {
                                 bottomNavigationViewemployer.setVisibility(View.VISIBLE);
                                 returnemployer.setVisibility(View.GONE);
                                 Toast.makeText(getApplicationContext(), "User created successfully", Toast.LENGTH_LONG).show();
-                                loadFragment(R.id.framedisplay,homeemployer = new HomeEmployer());
+                                loadFragment(R.id.framedisplay,homeemployer);
                                 clearEditTextFields();
 
                             }
