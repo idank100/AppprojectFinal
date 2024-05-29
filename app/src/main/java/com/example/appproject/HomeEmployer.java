@@ -1,5 +1,6 @@
 package com.example.appproject;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -38,6 +39,12 @@ public class HomeEmployer extends Fragment {
     ArrayList<JobApplication> jobApplicationsfinal;
     String businessname;
     FirebaseDatabase database;
+    private Context mcontext;
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        this.mcontext = context;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -112,7 +119,7 @@ public class HomeEmployer extends Fragment {
                             reasonjobtextview.setText("Reason for getting this job: "+jobApplicationsfinal.get(counter).getReasonjob());
                         }
                         else
-                            Toast.makeText(getActivity(),"There are no more candidate",Toast.LENGTH_LONG).show();
+                            Toast.makeText(mcontext,"There are no more candidate",Toast.LENGTH_LONG).show();
                     }
 
                 });

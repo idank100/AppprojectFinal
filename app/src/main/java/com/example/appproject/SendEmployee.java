@@ -1,5 +1,7 @@
 package com.example.appproject;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -36,6 +38,13 @@ public class SendEmployee extends Fragment {
     DatabaseReference  myRefisexsit;
     boolean issent;
     boolean isexsit;
+    boolean donotreapet;
+    private Context mcontext;
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        this.mcontext = context;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,6 +59,7 @@ public class SendEmployee extends Fragment {
         employers = new ArrayList<>();
         issent = false;
         isexsit = false;
+        donotreapet = false;
         myRefApplications = database.getReference("applications");
         myRefisexsit = database.getReference("employers");
         send.setOnClickListener(new View.OnClickListener() {
@@ -101,17 +111,18 @@ public class SendEmployee extends Fragment {
                             String reasonj = reasonjob.getText().toString();
                             jobApplication = new JobApplication(employee,business,reasonj);
                             myRef1.setValue(jobApplication);
-                            Toast.makeText(getActivity(),"The application was sent to the workplace",Toast.LENGTH_LONG).show();
+                            Toast.makeText(mcontext,"The application was sent to the workplace",Toast.LENGTH_LONG).show();
                         }
                         else
                         {
                             if(issent==true)
                             {
-                                Toast.makeText(getActivity(),"This application was already sent to the workplace",Toast.LENGTH_LONG).show();
+                                Toast.makeText(mcontext,"This application was already sent to the workplace",Toast.LENGTH_LONG).show();
                             }
-                            if(isexsit==false)
+                            if(isexsit==false&&donotreapet == false)
                             {
-                                Toast.makeText(getActivity(),"This business do not exist in the system",Toast.LENGTH_LONG).show();
+                                Toast.makeText(mcontext,"This business do not exist in the system",Toast.LENGTH_LONG).show();
+                                donotreapet = true;
                             }
                         }
                     }
@@ -122,6 +133,7 @@ public class SendEmployee extends Fragment {
                 });
                 issent = false;
                 isexsit = false;
+                donotreapet = false;
             }
         });
         return view;

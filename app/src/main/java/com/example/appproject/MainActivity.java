@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton returnfirst;
     ImageButton returnemployer;
     ImageButton returnemployee;
+    MainActivity activity;
     private void showNotification(String message) {
         // Notification ID
         int notificationId = 1;
@@ -97,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(notificationId, notification);
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,7 +129,6 @@ public class MainActivity extends AppCompatActivity {
         returnfirst = findViewById(R.id.returnfirstscreen);
         returnemployee = findViewById(R.id.returnemployee);
         returnemployer = findViewById(R.id.returnemployer);
-
         returnfirst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -247,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
                             Submitemployeesignup.setVisibility(View.GONE);
                             bottomNavigationViewemployee.setVisibility(View.VISIBLE);
                             returnemployee.setVisibility(View.GONE);
-                            Toast.makeText(MainActivity.this,"User created successfully",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"User created successfully",Toast.LENGTH_LONG).show();
                             loadFragment(R.id.framedisplay,homeemployee);
                             clearEditTextFields();
                         }
@@ -255,17 +256,17 @@ public class MainActivity extends AppCompatActivity {
                         {
                             if(isexsitsignup==true&&donotreapet == false)
                             {
-                                Toast.makeText(MainActivity.this,"this user already exists",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"this user already exists",Toast.LENGTH_LONG).show();
                             }
                             if(iswritten==false&&donotreapet == false)
                             {
-                                Toast.makeText(MainActivity.this,"to sign up you must write in every category",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"to sign up you must write in every category",Toast.LENGTH_LONG).show();
                             }
                         }
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        Toast.makeText(MainActivity.this,"failed",Toast.LENGTH_LONG).show();
+
                     }
 
                 });
@@ -320,13 +321,12 @@ public class MainActivity extends AppCompatActivity {
                         }
                         else
                         {
-                            Toast.makeText(MainActivity.this,"this user is not exists",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"this user is not exists",Toast.LENGTH_LONG).show();
                         }
-
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        Toast.makeText(MainActivity.this,"failed",Toast.LENGTH_LONG).show();
+
                     }
                 });
             }
@@ -437,20 +437,20 @@ public class MainActivity extends AppCompatActivity {
                                 Submitemployeesignup.setVisibility(View.GONE);
                                 bottomNavigationViewemployer.setVisibility(View.VISIBLE);
                                 returnemployer.setVisibility(View.GONE);
+                                Toast.makeText(getApplicationContext(), "User created successfully", Toast.LENGTH_LONG).show();
+                                loadFragment(R.id.framedisplay,homeemployer = new HomeEmployer());
                                 clearEditTextFields();
-                                Toast.makeText(MainActivity.this,"User created successfully",Toast.LENGTH_LONG).show();
-                                loadFragment(R.id.framedisplay,homeemployer);
 
                             }
                             else
                             {
                                 if(isexsitsignup==true&&donotreapet == false)
                                 {
-                                    Toast.makeText(MainActivity.this,"this user is already exists",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(),"this user is already exists",Toast.LENGTH_LONG).show();
                                 }
                                 if(iswritten==false&&donotreapet == false)
                                 {
-                                    Toast.makeText(MainActivity.this,"to sign up you must write in every category",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(),"to sign up you must write in every category",Toast.LENGTH_LONG).show();
                                 }
                             }
                         }
@@ -462,10 +462,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(MainActivity.this,"phone must have between 9-10 numbers",Toast.LENGTH_LONG).show();
-                    Toast.makeText(MainActivity.this,"first number must be 0",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"phone must have between 9-10 numbers",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"first number must be 0",Toast.LENGTH_LONG).show();
                 }
-
             }
         });
         loginemployer.setOnClickListener(new View.OnClickListener() {
@@ -517,13 +516,13 @@ public class MainActivity extends AppCompatActivity {
                         }
                         else
                         {
-                            Toast.makeText(MainActivity.this,"this user is not exists",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"this user is not exists",Toast.LENGTH_LONG).show();
                         }
 
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        Toast.makeText(MainActivity.this,"failed",Toast.LENGTH_LONG).show();
+
                     }
                 });
 
