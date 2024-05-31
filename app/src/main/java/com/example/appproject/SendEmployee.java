@@ -69,11 +69,13 @@ public class SendEmployee extends Fragment {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         jobApplications.clear();
+                        //get all of the application type variables into an array
                         for(DataSnapshot jobApplicationSnapshot : snapshot.getChildren())
                         {
                             JobApplication currentjobapplications= jobApplicationSnapshot.getValue(JobApplication.class);
                             jobApplications.add(currentjobapplications);
                         }
+                        //checking if this user already sent an application to this business
                         for(int i =0;i<jobApplications.toArray().length;i++)
                         {
                             if(employee.getEmail().equals(jobApplications.get(i).getEmployee().getEmail())&&employee.getAge().equals(jobApplications.get(i).getEmployee().getAge())&&employee.getCity().equals(jobApplications.get(i).getEmployee().getCity())&&employee.getFullName().equals(jobApplications.get(i).getEmployee().getFullName())&&employee.getGender().equals(jobApplications.get(i).getEmployee().getGender())&&employee.getPassword().equals(jobApplications.get(i).getEmployee().getPassword())&&searchbusiness.getText().toString().equals(jobApplications.get(i).getBusinessname()))
@@ -91,14 +93,15 @@ public class SendEmployee extends Fragment {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         employers.clear();
+                        //get all of the employer type variables into an array
                         for(DataSnapshot employerSnapshot : snapshot.getChildren())
                         {
                             Employer currentemployer= employerSnapshot.getValue(Employer.class);
                             employers.add(currentemployer);
                         }
+                        //checking if the business is exists in the array
                         for(int i =0;i<employers.toArray().length;i++)
                         {
-
                             if(searchbusiness.getText().toString().equals(employers.get(i).getBusinessName()))
                             {
                                 isexsit = true;

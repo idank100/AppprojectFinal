@@ -211,6 +211,7 @@ public class MainActivity extends AppCompatActivity {
                 iswritten = false;
                 donotreapet = false;
                 String email = Email.getText().toString(),fullname = FullName.getText().toString(),city = City.getText().toString(),password = Password.getText().toString(),age = Age.getText().toString(),gender = Gender.getText().toString();
+                //saving the user for further use in the fragments
                 employeeuser = new Employee(email,fullname,gender,age,city,password);
                 ArrayList<Employee> employees = new ArrayList<>();
                 DatabaseReference myRef = database.getReference("employees");
@@ -218,11 +219,13 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         employees.clear();
+                        //get all of the employee type variables into an array
                         for(DataSnapshot employeeSnapshot : snapshot.getChildren())
                         {
                             Employee currentemployee = employeeSnapshot.getValue(Employee.class);
                             employees.add(currentemployee);
                         }
+                        //checking if the user you want to create is already exists in the array
                         for(int i = 0;i<employees.toArray().length;i++)
                         {
                             if(email.equals(employees.get(i).getEmail())&&fullname.equals(employees.get(i).getFullName())&&city.equals(employees.get(i).getCity())&&password.equals(employees.get(i).getPassword())&&age.equals(employees.get(i).getAge())&&gender.equals(employees.get(i).getGender()))
@@ -231,6 +234,7 @@ public class MainActivity extends AppCompatActivity {
 
                             }
                         }
+                        //forcing you to write at least two numbers/letters in every category
                         if(email.length()>1&&fullname.length()>1&&city.length()>1&gender.length()>1&&age.length()>1&&password.length()>1)
                         {
                             iswritten = true;
@@ -294,16 +298,19 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         employees.clear();
+                        //get all of the employee type variables into an array
                         for(DataSnapshot employeeSnapshot : snapshot.getChildren())
                         {
                             Employee currentemployee = employeeSnapshot.getValue(Employee.class);
                             employees.add(currentemployee);
                         }
+                        //check if the email and the password you entered exists in one of the users in the array
                         for(int i = 0;i<employees.toArray().length;i++)
                         {
                             if((Email.getText().toString()).equals(employees.get(i).getEmail())&&(Password.getText().toString()).equals(employees.get(i).getPassword()))
                             {
                                 isexsitlogin = true;
+                                //saving the user for further use in the fragments
                                 employeeuser = employees.get(i);
                             }
                         }
@@ -394,10 +401,13 @@ public class MainActivity extends AppCompatActivity {
                 iswritten = false;
                 donotreapet = false;
                 String email = Email.getText().toString(),fullname = FullName.getText().toString(),city = City.getText().toString(),businessemployer = Businessemployer.getText().toString(),roleemployer = Roleemployer.getText().toString(),password = Password.getText().toString(),phonenumberstr= PhoneNumber.getText().toString();
+                //saving the business name for further use in the fragments
                 businessname = businessemployer;
+                //forcing you to write 9-10 numbers and put zero at the start of every phone number
                 if(phonenumberstr.length()>=9&&phonenumberstr.length()<=10&&phonenumberstr.charAt(0)=='0')
                 {
                     phonenumber = Integer.parseInt(phonenumberstr);
+                    //saving the user for further use in the fragments
                     employeruser = new Employer(email,fullname,city,businessemployer,roleemployer,password,phonenumber);
                     ArrayList<Employer> employers = new ArrayList<>();
                     DatabaseReference myRef = database.getReference("employers");
@@ -405,11 +415,13 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             employers.clear();
+                            //get all of the employer type variables into an array
                             for(DataSnapshot employerSnapshot : snapshot.getChildren())
                             {
                                 Employer currentemployer = employerSnapshot.getValue(Employer.class);
                                 employers.add(currentemployer);
                             }
+                            //checking if the user you want to create is already exists in the array
                             for(int i = 0;i<employers.toArray().length;i++)
                             {
                                 if(email.equals(employers.get(i).getEmail())&&fullname.equals(employers.get(i).getFullName())&&city.equals(employers.get(i).getCity())&&password.equals(employers.get(i).getPassword())&&businessemployer.equals(employers.get(i).getBusinessName())&&roleemployer.equals(employers.get(i).getRole())&&phonenumber==employers.get(i).getPhonenumber())
@@ -417,6 +429,7 @@ public class MainActivity extends AppCompatActivity {
                                     isexsitsignup = true;
                                 }
                             }
+                            //forcing you to write at least two numbers/letters in every category
                             if(email.length()>1&&fullname.length()>1&&city.length()>1&&businessemployer.length()>1&&roleemployer.length()>1&&password.length()>1)
                             {
                                 iswritten = true;
@@ -489,16 +502,19 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         employers.clear();
+                        //get all of the employer type variables into an array
                         for(DataSnapshot employerSnapshot : snapshot.getChildren())
                         {
                             Employer currentemployer = employerSnapshot.getValue(Employer.class);
                             employers.add(currentemployer);
                         }
+                        //check if the email and the password you entered exists in of the users in the array
                         for(int i = 0;i<employers.toArray().length;i++)
                         {
                             if(Email.getText().toString().equals(employers.get(i).getEmail())&&Password.getText().toString().equals(employers.get(i).getPassword()))
                             {
                                 isexsitlogin = true;
+                                //saving the user for further use in the fragments
                                 employeruser = employers.get(i);
                             }
                         }

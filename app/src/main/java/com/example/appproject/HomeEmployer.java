@@ -69,11 +69,13 @@ public class HomeEmployer extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 jobApplications.clear();
+                //get all of the application type variables into an array
                 for(DataSnapshot employeeSnapshot : snapshot.getChildren())
                 {
                     JobApplication currentjobapplications= employeeSnapshot.getValue(JobApplication.class);
                     jobApplications.add(currentjobapplications);
                 }
+                //transfer every applications with the same business name as this user to a different array
                 for(int i=0;i<jobApplications.toArray().length;i++)
                 {
                     if(jobApplications.get(i).getBusinessname().equals(businessname))
@@ -81,6 +83,7 @@ public class HomeEmployer extends Fragment {
                         jobApplicationsfinal.add(jobApplications.get(i));
                     }
                 }
+                // if the new array is not empty show the application
                 if(!jobApplicationsfinal.isEmpty())
                 {
                     emailtextview.setText("Email: "+jobApplicationsfinal.get(counter).getEmployee().getEmail());
@@ -105,6 +108,7 @@ public class HomeEmployer extends Fragment {
                 {
                     move.setVisibility(View.VISIBLE);
                 }
+                //moves to the next application every time you pressed the button until there are no more application
                 move.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
